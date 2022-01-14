@@ -1,2 +1,8 @@
-Your name is <%= @name %>
-rock paper scissors
+Hello <%= @name%>!
+<form method="POST" action="/play">
+  <input type="submit" name="option" value="rock">
+  <input type="submit" name="option" value="paper">
+  <input type="submit" name="option" value="scissors">
+</form>
+
+You clicked <%= @option %>
