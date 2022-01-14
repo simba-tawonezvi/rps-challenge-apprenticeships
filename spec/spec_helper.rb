@@ -10,6 +10,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 # For accurate test coverage measurements, require your code AFTER 'SimpleCov.start'
+require 'features/web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 
