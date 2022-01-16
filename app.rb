@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative 'lib/opponent'
+require_relative 'lib/play'
 
 class RockPaperScissors < Sinatra::Base
   configure :development do
@@ -15,7 +15,7 @@ class RockPaperScissors < Sinatra::Base
 
   post '/name' do
     session[:name] = params[:name]
-    $opponent = Opponent.new
+    $opponent = Play.new
     redirect '/play'
   end
 
@@ -28,13 +28,11 @@ class RockPaperScissors < Sinatra::Base
 
   post '/play' do
     session[:option] = params[:option]
-    session[:opponent] = :scissors
     redirect '/play'
   end
 
   get '/test' do
     'test page'
   end
-
   run! if app_file == $0
 end
