@@ -1,5 +1,5 @@
 feature 'play game' do
-  scenario 'show game options' do
+  scenario 'show game option buttons' do
     usr_sign_in
     expect(page).to have_button('rock' && 'paper' && 'scissors')
   end

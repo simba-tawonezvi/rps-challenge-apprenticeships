@@ -15,14 +15,14 @@ class RockPaperScissors < Sinatra::Base
 
   post '/name' do
     session[:name] = params[:name]
-    $opponent = Play.new
+    session[:opponent] = Play.new
     redirect '/play'
   end
 
   get '/play' do
     @name = session[:name]
     @option = session[:option]
-    @opponent = $opponent.option.sample
+    @opponent = session[:opponent].option.sample
     erb(:play)
   end
 
